@@ -5,21 +5,26 @@ import {todoListStore} from '@store/todoList';
 
 const HomeViewController = () => {
   const [dummyText, setDummyText] = useState('Hello World');
+  const [count, setCount] = useState(0);
 
-  const {todos, deleteAllTodos, count} = todoListStore;
+  const {todos, deleteAllTodos} = todoListStore;
 
   const addNewTodo = async () => {
+    setCount(count + 1);
     const todoItem = {
-      todo: `test ${count}`,
+      todo: `test ${count + 1}`,
       completed: false,
-      userId: `${count}`,
+      userId: `${count + 1}`,
     };
 
     await TodoListMiddleware.createNewTodo(todoItem);
   };
 
-  const deleteTodo = (id: string) => {
-    TodoListMiddleware.deleteTodoById(id);
+  const deleteTodo = () => {
+    if (count) {
+      TodoListMiddleware.deleteTodoById(`${count}`);
+      setCount(count - 1);
+    }
   };
 
   return {

@@ -5,8 +5,7 @@ import {TodoList} from './components/todoList';
 import HomeViewController from './homeController';
 
 export const Home: React.FC = () => {
-  const {addNewTodo, todoListStore} = HomeViewController();
-  console.log('rendering whole home view');
+  const {addNewTodo, todoListStore, deleteTodo} = HomeViewController();
 
   return (
     <View>
@@ -28,7 +27,7 @@ export const Home: React.FC = () => {
       </TouchableOpacity>
 
       <TouchableOpacity
-        onPress={addNewTodo}
+        onPress={deleteTodo}
         style={{
           backgroundColor: 'red',
           padding: 10,
