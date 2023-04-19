@@ -61,7 +61,7 @@ export const Home: React.FC = () => {
               fontSize: 16,
               textAlign: 'center',
             }}>
-            {'Set New Todos'}
+            {'Get New Todos'}
           </Text>
         </TouchableOpacity>
       </View>
