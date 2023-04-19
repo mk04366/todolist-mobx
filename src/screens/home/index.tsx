@@ -10,56 +10,61 @@ export const Home: React.FC = () => {
 
   return (
     <View>
-      <TouchableOpacity
-        onPress={addNewTodo}
-        style={{
-          backgroundColor: '#007AFF',
-          padding: 10,
-          borderRadius: 5,
-        }}>
-        <Text
+      <View style={{flexDirection: 'row'}}>
+        <TouchableOpacity
+          onPress={addNewTodo}
           style={{
-            color: '#FFFFFF',
-            fontSize: 16,
-            textAlign: 'center',
+            backgroundColor: '#007AFF',
+            padding: 10,
+            borderRadius: 5,
+            margin: 2,
           }}>
-          {'Add Test Todo'}
-        </Text>
-      </TouchableOpacity>
+          <Text
+            style={{
+              color: '#FFFFFF',
+              fontSize: 16,
+              textAlign: 'center',
+            }}>
+            {'Add Test Todo'}
+          </Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity
-        onPress={deleteTodo}
-        style={{
-          backgroundColor: 'red',
-          padding: 10,
-          borderRadius: 5,
-        }}>
-        <Text
+        <TouchableOpacity
+          onPress={deleteTodo}
           style={{
-            color: '#FFFFFF',
-            fontSize: 16,
-            textAlign: 'center',
+            backgroundColor: 'red',
+            padding: 10,
+            borderRadius: 5,
+            margin: 2,
           }}>
-          {'Delete Last Todo'}
-        </Text>
-      </TouchableOpacity>
+          <Text
+            style={{
+              color: '#FFFFFF',
+              fontSize: 16,
+              textAlign: 'center',
+            }}>
+            {'Delete Last Todo'}
+          </Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity
-        onPress={setNewTodos}
-        style={{
-          backgroundColor: 'green',
-          padding: 10,
-          borderRadius: 5,
-        }}>
-        <Text
+        <TouchableOpacity
+          onPress={setNewTodos}
           style={{
-            color: '#FFFFFF',
-            fontSize: 16,
-            textAlign: 'center',
+            backgroundColor: 'green',
+            padding: 10,
+            borderRadius: 5,
+            margin: 2,
           }}>
-          {'Set New Todos'}
-        </Text>
-      </TouchableOpacity>
+          <Text
+            style={{
+              color: '#FFFFFF',
+              fontSize: 16,
+              textAlign: 'center',
+            }}>
+            {'Set New Todos'}
+          </Text>
+        </TouchableOpacity>
+      </View>
 
       <TodoList todoStore={todoListStore} />
     </View>
