@@ -10,7 +10,6 @@ export const AppRoutes = () => {
   return (
     <AppStack.Navigator>
       <AppStack.Screen name={Routes.HOME} component={Home} />
-      {/* <AppStackRoutes.Screen name="Details" component={Details} /> */}
     </AppStack.Navigator>
   );
 };
@@ -22,8 +21,6 @@ export const RootRoutes = () => {
     <RootStack.Navigator
       initialRouteName={Routes.APP_ROUTES}
       screenOptions={{headerShown: false}}>
-      {/* <RootStack.Screen name="welcome" component={welcome} />
-          <RootStack.Screen name="login" component={login} /> */}
       <RootStack.Screen name={Routes.APP_ROUTES} component={AppRoutes} />
     </RootStack.Navigator>
   );

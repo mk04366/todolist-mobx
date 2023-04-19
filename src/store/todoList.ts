@@ -9,6 +9,7 @@ export class TodoList {
     makeObservable(this, {
       todos: observable,
       addTodo: action,
+      setTodos: action,
       deleteTodo: action,
       deleteAllTodos: action,
       count: computed,
@@ -19,8 +20,14 @@ export class TodoList {
     this.todos = [...this.todos, todoItem];
   }
 
-  deleteTodo(id: string) {
-    this.todos = this.todos.filter(todo => todo.userId !== id);
+  setTodos(todos: ITodoItem[]) {
+    console.info('* SET TODOS: ' + JSON.stringify(todos));
+    this.todos = todos;
+  }
+
+  deleteTodo() {
+    console.info('Deleting last todo');
+    this.todos = this.todos.slice(0, -1);
   }
 
   deleteAllTodos() {

@@ -9,8 +9,8 @@ export const TodoList: React.FC = observer(({todoStore}) => {
     <>
       <FlatList
         data={todoStore.todos}
-        renderItem={({item, index}) => (
-          <View key={`${index} ${item.id}`} style={styles.sectionContainer}>
+        renderItem={({item}) => (
+          <View key={item.userId} style={styles.sectionContainer}>
             <Text>{item.todo}</Text>
           </View>
         )}
