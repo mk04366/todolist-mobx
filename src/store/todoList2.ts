@@ -2,7 +2,7 @@ import {makeAutoObservable} from 'mobx';
 
 import {ITodoItem} from '@services/todolist-api';
 
-export class TodoList {
+export class TodoList2 {
   todos: ITodoItem[] = [];
 
   constructor() {
@@ -34,4 +34,4 @@ export class TodoList {
   }
 }
 
-export const todoListStore = new TodoList();
+export const todoListStore2 = new TodoList2();
