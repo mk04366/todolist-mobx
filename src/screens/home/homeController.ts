@@ -1,16 +1,21 @@
-import {useState} from 'react';
+import {useQuery} from 'react-query';
 
 import TodoListMiddleware from '@middleware/todoList';
 import {todoListStore} from '@store/todoList';
 import {todoListStore2} from '@store/todoList2';
 
 const HomeViewController = () => {
+  const {isLoading, error, data} = useQuery('getTodos', async () => {
+    console.log('here');
+    await TodoListMiddleware.getNewTodos();
+  });
+
   const addNewTodo = async () => {
     const {count} = todoListStore;
     const todoItem = {
-      todo: `test ${'22'}`,
+      todo: `test ${count}`,
       completed: false,
-      userId: `${'22'}`,
+      userId: `${count}`,
     };
 
     await TodoListMiddleware.createNewTodo(todoItem);
@@ -28,9 +33,9 @@ const HomeViewController = () => {
   const addNewTodo2 = async () => {
     const {count} = todoListStore2;
     const todoItem = {
-      todo: `test ${'22'}`,
+      todo: `test ${count}`,
       completed: false,
-      userId: `${'22'}`,
+      userId: `${count}`,
     };
 
     await TodoListMiddleware.createNewTodo2(todoItem);
@@ -48,8 +53,11 @@ const HomeViewController = () => {
   return {
     todoListStore,
     todoListStore2,
-    setNewTodos,
+    isLoading,
+    error,
+    data,
     addNewTodo,
+    setNewTodos,
     deleteTodo,
     setNewTodos2,
     addNewTodo2,

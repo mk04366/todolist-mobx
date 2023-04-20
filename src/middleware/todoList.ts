@@ -13,6 +13,7 @@ export default class TodoListMiddleware {
     // await TodosApi.addNewTodo(todoItem);
 
     todoListStore.addTodo(todoItem);
+    return 'DONE';
   }
 
   static async deleteTodoById(todoId: string) {
