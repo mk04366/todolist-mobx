@@ -5,16 +5,11 @@ import {TodoList} from './components/todoList';
 import HomeViewController from './homeController';
 
 export const Home: React.FC = () => {
-  const {
-    addNewTodo,
-    todoListStore,
-    deleteTodo,
-    setNewTodos,
-    isLoading,
-    error,
-    data,
-  } = HomeViewController();
+  const {addNewTodo, todoListStore, deleteTodo, setNewTodos, isLoading, error} =
+    HomeViewController();
 
+  console.log('error', error);
+  console.log('isLoading', isLoading);
   if (isLoading) {
     return (
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>

@@ -5,10 +5,14 @@ import {todoListStore} from '@store/todoList';
 import {todoListStore2} from '@store/todoList2';
 
 const HomeViewController = () => {
-  const {isLoading, error, data} = useQuery('getTodos', async () => {
-    console.log('here');
-    await TodoListMiddleware.getNewTodos();
-  });
+  const {isLoading, error} = useQuery(
+    'getTodos',
+    async () => {
+      console.log('Running reactQuery Function');
+      await TodoListMiddleware.getNewTodos();
+    },
+    {staleTime: 0, cacheTime: 0, retry: false},
+  );
 
   const addNewTodo = async () => {
     const {count} = todoListStore;
@@ -55,7 +59,6 @@ const HomeViewController = () => {
     todoListStore2,
     isLoading,
     error,
-    data,
     addNewTodo,
     setNewTodos,
     deleteTodo,

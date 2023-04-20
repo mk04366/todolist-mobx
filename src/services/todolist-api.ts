@@ -9,8 +9,10 @@ export interface ITodoItem {
 
 export const TodosApi = {
   getAllTodo: async () => {
+    const currTime = new Date();
     try {
       const response = await axios.get(`https://dummyjson.com/todos`);
+      console.log('API Time: ', new Date() - currTime, 'ms');
       return response?.data;
     } catch (err) {
       console.error('TodosAPI:error:', err);
